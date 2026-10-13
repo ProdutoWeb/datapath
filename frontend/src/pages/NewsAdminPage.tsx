@@ -1,7 +1,6 @@
-﻿import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Plus, Edit2, Trash2, Image as ImageIcon } from 'lucide-react'
 
-// Mock fetching or replace with real fetch calls
 const API_URL = (typeof window !== 'undefined' && window.location.port === '5173' ? 'http://localhost:5000/api' : '/api') + '/news'
 
 interface NewsArticle {
@@ -92,11 +91,12 @@ export default function NewsAdminPage() {
       fetchNews()
     } catch (err: any) {
       console.error(err)
-      alert(err.message || 'Erro ao salvar not�cia.')
+      alert(err.message || 'Erro ao salvar notícia.')
     }
   }
+
   const handleDelete = async (id: string) => {
-    if (!confirm("Tem certeza que deseja apagar esta notÃ­cia?")) return
+    if (!confirm("Tem certeza que deseja apagar esta notícia?")) return
     const token = localStorage.getItem('datapath_token')
     await fetch(`${API_URL}/${id}`, {
       method: 'DELETE',
@@ -129,11 +129,11 @@ export default function NewsAdminPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-slate-800">GestÃ£o de NotÃ­cias</h1>
+          <h1 className="text-2xl font-bold text-slate-800">Gestão de Notícias</h1>
           <p className="text-sm text-slate-500 mt-1">Publique novidades para o site vitrine.</p>
         </div>
         <button onClick={openNew} className="btn-primary flex items-center gap-2">
-          <Plus className="w-4 h-4" /> Nova NotÃ­cia
+          <Plus className="w-4 h-4" /> Nova Notícia
         </button>
       </div>
 
@@ -142,10 +142,10 @@ export default function NewsAdminPage() {
           <thead className="bg-slate-50">
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Capa</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">TÃ­tulo</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Título</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Data</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Status</th>
-              <th className="px-6 py-3 text-right text-xs font-medium text-slate-500 uppercase tracking-wider">AÃ§Ãµes</th>
+              <th className="px-6 py-3 text-right text-xs font-medium text-slate-500 uppercase tracking-wider">Ações</th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-slate-200">
@@ -185,7 +185,7 @@ export default function NewsAdminPage() {
             {news.length === 0 && !isLoading && (
               <tr>
                 <td colSpan={5} className="px-6 py-8 text-center text-slate-500">
-                  Nenhuma notÃ­cia publicada ainda.
+                  Nenhuma notícia publicada ainda.
                 </td>
               </tr>
             )}
@@ -196,10 +196,10 @@ export default function NewsAdminPage() {
       {isModalOpen && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6">
-            <h2 className="text-xl font-bold mb-4">{editingId ? 'Editar NotÃ­cia' : 'Nova NotÃ­cia'}</h2>
+            <h2 className="text-xl font-bold mb-4">{editingId ? 'Editar Notícia' : 'Nova Notícia'}</h2>
             <form onSubmit={handleSave} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-slate-700">TÃ­tulo</label>
+                <label className="block text-sm font-medium text-slate-700">Título</label>
                 <input required type="text" value={title} onChange={e => setTitle(e.target.value)} className="mt-1 input-field" />
               </div>
               <div>
@@ -207,7 +207,7 @@ export default function NewsAdminPage() {
                 <textarea required value={summary} onChange={e => setSummary(e.target.value)} rows={2} className="mt-1 input-field" />
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700">ConteÃºdo</label>
+                <label className="block text-sm font-medium text-slate-700">Conteúdo</label>
                 <textarea required value={content} onChange={e => setContent(e.target.value)} rows={8} className="mt-1 input-field" />
               </div>
               <div>
@@ -217,7 +217,7 @@ export default function NewsAdminPage() {
               {editingId && (
                 <div className="flex items-center gap-2">
                   <input type="checkbox" checked={isActive} onChange={e => setIsActive(e.target.checked)} id="isActive" />
-                  <label htmlFor="isActive" className="text-sm font-medium text-slate-700">NotÃ­cia Ativa (VisÃ­vel na Vitrine)</label>
+                  <label htmlFor="isActive" className="text-sm font-medium text-slate-700">Notícia Ativa (Visível na Vitrine)</label>
                 </div>
               )}
               <div className="pt-4 flex justify-end gap-3">
@@ -225,7 +225,7 @@ export default function NewsAdminPage() {
                   Cancelar
                 </button>
                 <button type="submit" className="btn-primary">
-                  Salvar NotÃ­cia
+                  Salvar Notícia
                 </button>
               </div>
             </form>
@@ -235,6 +235,3 @@ export default function NewsAdminPage() {
     </div>
   )
 }
-
-
-
