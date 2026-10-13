@@ -61,6 +61,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           </div>
 
           <nav className="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-600">
+            <a href="/" className="text-sky-700 font-bold hover:text-sky-800 transition-colors">← Vitrine DigiPath</a>
             <a href="#sobre" className="hover:text-sky-600 transition-colors">Sobre</a>
             <a href="#servicos" className="hover:text-sky-600 transition-colors">Equipamentos & WSI</a>
             <a href="#solicitar" className="hover:text-sky-600 transition-colors">Solicitar Digitalização</a>

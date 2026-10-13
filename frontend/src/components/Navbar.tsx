@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { Microscope, Layers, PlusCircle, UserCheck, ShieldCheck, ExternalLink, LogOut, Menu, X, Home, BookOpen, FileDown, FileText } from 'lucide-react';
+import { Microscope, Layers, PlusCircle, UserCheck, ShieldCheck, ExternalLink, LogOut, Menu, X, BookOpen, FileDown, FileText } from 'lucide-react';
 
 interface NavbarProps {
   onNavigate: (page: string) => void;
@@ -52,16 +52,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
 
           {/* Navigation links */}
           <nav className="hidden lg:flex items-center gap-1">
-            <button
-              onClick={() => onNavigate('home')}
-              className={`flex items-center gap-2 rounded-xl px-3.5 py-2 text-xs font-semibold transition-all ${
-                currentPage === 'home'
-                  ? 'bg-sky-100 text-sky-800 border border-sky-200'
-                  : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
-              }`}
+            <a
+              href="/"
+              className="flex items-center gap-1.5 rounded-xl px-3.5 py-2 text-xs font-bold text-sky-700 bg-sky-50/80 hover:bg-sky-100 border border-sky-200/80 transition-all mr-1"
             >
-              <Home className="h-4 w-4" /> Portal Institucional
-            </button>
+              ← Vitrine DigiPath
+            </a>
 
             <button
               onClick={() => onNavigate('dashboard')}
@@ -188,12 +184,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentPage }) => {
       {/* Mobile Menu */}
       {mobileOpen && (
         <div className="lg:hidden border-t border-slate-200 bg-white p-4 space-y-2 shadow-lg">
-          <button
-            onClick={() => { onNavigate('home'); setMobileOpen(false); }}
-            className="w-full flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-100"
+          <a
+            href="/"
+            onClick={() => setMobileOpen(false)}
+            className="w-full flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-bold text-sky-700 bg-sky-50 border border-sky-200"
           >
-            <Home className="h-4 w-4 text-sky-600" /> Portal Institucional
-          </button>
+            ← Vitrine DigiPath
+          </a>
           <button
             onClick={() => { onNavigate('dashboard'); setMobileOpen(false); }}
             className="w-full flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-100"

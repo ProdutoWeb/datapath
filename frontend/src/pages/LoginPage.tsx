@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { Microscope, ShieldCheck, ArrowRight, UserCheck, Home } from 'lucide-react';
+import { Microscope, ShieldCheck, ArrowRight, UserCheck } from 'lucide-react';
 
 interface LoginPageProps {
   onNavigate?: (page: string) => void;
@@ -161,16 +161,12 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onNavigate }) => {
               <UserCheck className="h-4 w-4" /> Formulário de Parceiros
             </button>
 
-            <button
-              type="button"
-              onClick={() => {
-                if (onNavigate) onNavigate('home');
-                else window.location.href = '/';
-              }}
+            <a
+              href="/"
               className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 text-xs font-bold transition-all shadow-xs"
             >
-              <Home className="h-4 w-4" /> Portal Institucional
-            </button>
+              ← Vitrine DigiPath
+            </a>
           </div>
         </div>
       </div>
