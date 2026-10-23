@@ -33,15 +33,7 @@ export default function GalleryPage() {
               <p className="text-sm text-sky-700 mt-1">
                 As miniaturas abaixo representam lâminas digitalizadas no laboratório de Patologia Digital da UFES
                 utilizando o scanner 3DHISTECH Pannoramic. Todos os dados clínicos associados são anonimizados
-                em conformidade com a LGPD. Para acessar as imagens em resolução completa, utilize o{' '}
-                <a
-                  href="https://datapath.produtoweb.com.br"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-semibold underline hover:text-sky-900"
-                >
-                  Sistema dataPATH
-                </a>.
+                em conformidade com a LGPD.
               </p>
             </div>
           </div>

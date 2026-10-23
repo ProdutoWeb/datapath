@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Menu, X, ExternalLink } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import logoNavbar from '../assets/logos/logo_digipath_fundo_branco.png'
 
 type Page = 'home' | 'sobre' | 'datapath' | 'noticias'
@@ -9,24 +9,19 @@ interface NavbarProps {
   onNavigate: (page: Page) => void
 }
 
-const navItems: { id: Page | 'servico'; label: string }[] = [
+const navItems: { id: Page; label: string }[] = [
   { id: 'home', label: 'Início' },
   { id: 'sobre', label: 'Sobre' },
   { id: 'datapath', label: 'Datapath' },
   { id: 'noticias', label: 'Notícias' },
-  { id: 'servico', label: 'Serviço' },
 ]
 
 export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
 
-  const handleClick = (id: Page | 'servico') => {
-    if (id === 'servico') {
-      window.location.href = '/sistema'
-    } else {
-      onNavigate(id)
-      setMobileOpen(false)
-    }
+  const handleClick = (id: Page) => {
+    onNavigate(id)
+    setMobileOpen(false)
   }
 
   return (
@@ -55,16 +50,13 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
                 onClick={() => handleClick(item.id)}
                 className={`
                   px-4 py-2 rounded-lg text-sm font-medium transition-all cursor-pointer
-                  ${item.id === 'servico'
-                    ? 'bg-[var(--color-primary)] text-white hover:bg-sky-700 flex items-center gap-1.5'
-                    : currentPage === item.id
-                      ? 'bg-[var(--color-accent-soft)] text-[var(--color-accent)]'
-                      : 'text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-slate-100'
+                  ${currentPage === item.id
+                    ? 'bg-[var(--color-accent-soft)] text-[var(--color-accent)]'
+                    : 'text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-slate-100'
                   }
                 `}
               >
                 {item.label}
-                {item.id === 'servico' && <ExternalLink className="w-3.5 h-3.5" />}
               </button>
             ))}
           </div>
@@ -89,16 +81,13 @@ export default function Navbar({ currentPage, onNavigate }: NavbarProps) {
                 onClick={() => handleClick(item.id)}
                 className={`
                   w-full text-left px-4 py-3 rounded-lg text-sm font-medium transition-all cursor-pointer
-                  ${item.id === 'servico'
-                    ? 'bg-[var(--color-primary)] text-white flex items-center gap-2'
-                    : currentPage === item.id
-                      ? 'bg-[var(--color-accent-soft)] text-[var(--color-accent)]'
-                      : 'text-[var(--color-text-muted)] hover:bg-slate-100'
+                  ${currentPage === item.id
+                    ? 'bg-[var(--color-accent-soft)] text-[var(--color-accent)]'
+                    : 'text-[var(--color-text-muted)] hover:bg-slate-100'
                   }
                 `}
               >
                 {item.label}
-                {item.id === 'servico' && <ExternalLink className="w-4 h-4" />}
               </button>
             ))}
           </div>

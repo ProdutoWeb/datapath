@@ -63,15 +63,13 @@ export default function HomePage({ onNavigate }: HomePageProps) {
                 <strong className="text-[var(--color-text)]">AFECC — Hospital Santa Rita</strong>.
               </p>
               <div className="flex flex-wrap gap-4">
-                <a
-                  href="https://datapath.produtoweb.com.br"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-primary)] text-white font-semibold hover:bg-sky-700 transition-colors"
+                <button
+                  onClick={() => onNavigate('datapath')}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--color-primary)] text-white font-semibold hover:bg-sky-700 transition-colors cursor-pointer"
                 >
-                  Acessar dataPATH
+                  Explorar Galeria
                   <ArrowRight className="w-4 h-4" />
-                </a>
+                </button>
                 <button
                   onClick={() => onNavigate('sobre')}
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-[var(--color-border)] text-[var(--color-text)] font-semibold hover:bg-slate-50 transition-colors cursor-pointer"

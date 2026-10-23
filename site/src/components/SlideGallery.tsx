@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Filter, Sparkles, X, Microscope, Eye, Maximize2, Layers } from 'lucide-react'
+import { Filter, Sparkles, X, Microscope, Eye, Layers } from 'lucide-react'
 import slideThumbReal from '../assets/images/slide_tb8325_thumb.webp'
 import slideMacroReal from '../assets/images/slide_tb8325_macro.webp'
 
@@ -317,22 +317,16 @@ export default function SlideGallery() {
             {/* Modal Footer */}
             <div className="px-6 py-4 bg-slate-50 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
               <span className="text-xs text-slate-500 text-center sm:text-left">
-                Para navegar no visualizador gigapixel completo com zoom contínuo, acesse o sistema dataPATH.
+                Lâmina digitalizada em resolução gigapixel com total conformidade ética e regulatória.
               </span>
               <div className="flex items-center gap-2 w-full sm:w-auto">
                 <button
                   type="button"
                   onClick={() => setSelectedSlide(null)}
-                  className="w-full sm:w-auto px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-200 rounded-xl transition-all"
+                  className="w-full sm:w-auto px-5 py-2 text-xs font-semibold text-white bg-slate-800 hover:bg-slate-900 rounded-xl transition-all cursor-pointer"
                 >
                   Fechar
                 </button>
-                <a
-                  href="/sistema"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-5 py-2 rounded-xl bg-sky-600 hover:bg-sky-700 text-white text-xs font-bold shadow-md shadow-sky-600/20 transition-all"
-                >
-                  <Maximize2 className="w-3.5 h-3.5" /> Acessar no Mini-PACS
-                </a>
               </div>
             </div>
           </div>
